@@ -1,10 +1,10 @@
 .reference-site{overflow:hidden;letter-spacing:0}
-.reference-banner{position:relative;height:47.5vw;background:var(--background);overflow:hidden}
+.reference-banner{position:relative;aspect-ratio:1584/672;height:auto;background:var(--background);overflow:hidden}
 .reference-banner>img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.reference-pagination{position:absolute;right:6.5%;top:-8px;display:flex;flex-direction:column;gap:26px}
+.reference-pagination{position:absolute;right:3%;bottom:24px;display:flex;gap:16px}
 .reference-pagination button{font:400 20px/1.6 Lato,sans-serif;color:var(--primary-foreground);opacity:.45;cursor:pointer;border:0;background:none;padding:0}
 .reference-pagination button.selected{opacity:.8}
-.reference-pagination button:first-child{visibility:hidden;margin-top:-46px}
+.reference-pagination button{min-width:32px;min-height:32px}.reference-pagination button.selected{opacity:1}
 .reference-site main .page{overflow:visible}
 .reference-site .page{animation:none!important}
 .reference-site .rd-navbar{position:relative;transform:none;box-shadow:none}
@@ -86,7 +86,7 @@
 .reference-milestones #profile .timeline-body p{line-height:1.8}
 @media(min-width:980px){.reference-about .rd-nav-item:nth-child(2)>.rd-nav-link,.reference-founder .rd-nav-item:nth-child(2)>.rd-nav-link,.reference-management .rd-nav-item:nth-child(2)>.rd-nav-link{color:var(--primary)}}
 @media(max-width:979px){.reference-site .rd-navbar-main{min-height:72px;flex-wrap:wrap;gap:10px}.reference-site .rd-navbar-nav{gap:12px}.reference-site .rd-navbar-brand img{width:145px}.reference-site .rd-nav-link{font-size:10px}.reference-site .rd-navbar-main-element{gap:5px}.reference-site .btn{font-size:11px;padding:8px}.reference-site .reference-pagination{gap:20px}.reference-site .footer-classic-brand img{width:230px}}
-@media(max-width:767px){.reference-site .rd-navbar-toggle{display:block;position:relative;top:auto;left:auto}.reference-site .rd-navbar-panel{display:flex;gap:12px;align-items:center}.reference-site .rd-navbar-nav-wrap{display:none;order:3;flex-basis:100%}.reference-site .rd-navbar-nav-wrap.mobile-open{display:block}.reference-site .rd-navbar-nav{flex-direction:column}.reference-site .rd-menu{position:static;display:none}.reference-site .rd-nav-item:hover>.rd-menu{display:block}.reference-site .rd-navbar-main{padding:8px 0;min-height:62px}.reference-banner{height:47.5vw}.reference-pagination{display:none}.reference-site .home-awards{display:block}.reference-site .home-awards .col-md-6{width:100%}.reference-site .box-ordered{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.reference-site .box-ordered>.col-lg-4{padding:0}.reference-site .box-icon-modern-title{font-size:12px;white-space:normal}.reference-site .box-icon-modern-title img{width:20px}.reference-site .box-icon-modern-text{font-size:10px}.reference-site .footer-classic .row{gap:30px}.reference-site #profile .row>.col-sm-6{width:100%}.reference-site #profile .row>.col-sm-6+div{margin-top:25px}}
+@media(max-width:767px){.reference-site .rd-navbar-toggle{display:block;position:relative;top:auto;left:auto}.reference-site .rd-navbar-panel{display:flex;gap:12px;align-items:center}.reference-site .rd-navbar-nav-wrap{display:none;order:3;flex-basis:100%}.reference-site .rd-navbar-nav-wrap.mobile-open{display:block}.reference-site .rd-navbar-nav{flex-direction:column}.reference-site .rd-menu{position:static;display:none}.reference-site .rd-nav-item:hover>.rd-menu{display:block}.reference-site .rd-navbar-main{padding:8px 0;min-height:62px}.reference-banner{aspect-ratio:1584/672;height:auto}.reference-pagination{display:none}.reference-site .home-awards{display:block}.reference-site .home-awards .col-md-6{width:100%}.reference-site .box-ordered{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.reference-site .box-ordered>.col-lg-4{padding:0}.reference-site .box-icon-modern-title{font-size:12px;white-space:normal}.reference-site .box-icon-modern-title img{width:20px}.reference-site .box-icon-modern-text{font-size:10px}.reference-site .footer-classic .row{gap:30px}.reference-site #profile .row>.col-sm-6{width:100%}.reference-site #profile .row>.col-sm-6+div{margin-top:25px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
 .reference-product .product-banner img{width:100%;height:auto;display:block}
 .reference-product #product .product-heading{font-family:Lato,sans-serif;font-weight:700}
@@ -152,3 +152,5 @@
 .login-divider::before, .login-divider::after { content: ""; flex: 1; height: 1px; background: oklch(0.88 0.01 120); }
 .login-merchant { text-align: center; }
 @media (max-width: 860px) { .login-card { grid-template-columns: 1fr; } .login-side { padding: 40px 28px; } .login-main { padding: 40px 28px; } }
+
+.reference-video-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}

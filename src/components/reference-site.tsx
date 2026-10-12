@@ -3,24 +3,18 @@ import { Link } from "@tanstack/react-router";
 import parse, { domToReact, Element, type DOMNode, type HTMLReactParserOptions } from "html-react-parser";
 import { Button } from "@/components/ui/button";
 import reference from "@/lib/reference-pages.json";
-import bannerOne from "@/assets/lifeos/hd/banner-1.webp";
-import bannerTwo from "@/assets/lifeos/hd/banner-2.webp";
-import bannerThree from "@/assets/lifeos/hd/banner-3.webp";
-import serviceOne from "@/assets/lifeos/ultra/services-01.jpg";
-import serviceTwentyOne from "@/assets/lifeos/ultra/services-21.jpg";
-import serviceFortyOne from "@/assets/lifeos/ultra/services-41.jpg";
-import communityEvent from "@/assets/lifeos/ultra/events-03.jpg";
+import bannerOne from "@/assets/refined/banner-1.jpg";
+import bannerTwo from "@/assets/refined/banner-2.jpg";
+import bannerThree from "@/assets/refined/banner-3.jpg";
 
-// Resolve each distinct media token to its high-resolution CDN asset.
-const lifeosTiles = import.meta.glob<{ default: { url: string } }>("/src/assets/lifeos/high-resolution/*.asset.json", { eager: true });
+const mediaPointers = import.meta.glob<{ default: { url: string } }>("/src/assets/restored/tile-*.asset.json", { eager: true });
 const lifeosMedia = new Map<string, string>();
-for (const [path, mod] of Object.entries(lifeosTiles)) {
-  const m = path.match(/high-resolution\/([a-z]+)-(\d+)\.webp\.asset\.json$/);
-  if (m) lifeosMedia.set(`${m[1]}/${Number(m[2])}`, mod.default.url);
+for (const [path, mod] of Object.entries(mediaPointers)) {
+  const match = path.match(/tile-([a-z]+)-(\d+)\.webp\.asset\.json$/);
+  if (match) lifeosMedia.set(`${match[1]}/${Number(match[2])}`, mod.default.url);
 }
 function resolveMedia(html: string): string {
-  const heroes: Record<string, string> = { "services/1": serviceOne, "services/21": serviceTwentyOne, "services/41": serviceFortyOne, "events/3": communityEvent };
-  return html.replace(/lifeos-media:\/\/([a-z]+)\/(\d{2})/g, (match, group, nn) => heroes[`${group}/${Number(nn)}`] ?? lifeosMedia.get(`${group}/${Number(nn)}`) ?? match);
+  return html.replace(/lifeos-media:\/\/([a-z]+)\/(\d{2})/g, (match, group, number) => lifeosMedia.get(`${group}/${Number(number)}`) ?? match);
 }
 
 export type ReferencePage = keyof typeof reference.pages;
