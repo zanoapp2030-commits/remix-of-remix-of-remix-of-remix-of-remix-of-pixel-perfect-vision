@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "4c67a26b-b182-4930-8acc-7f6b072426b3",
-  "project_id": "1aa895a9-a44d-41ad-b018-d2ab7beda0fc",
-  "url": "/__l5e/assets-v1/4c67a26b-b182-4930-8acc-7f6b072426b3/tile-recognition-23.webp.asset.webp",
-  "r2_key": "a/v1/1aa895a9-a44d-41ad-b018-d2ab7beda0fc/4c67a26b-b182-4930-8acc-7f6b072426b3/tile-recognition-23.webp.asset.webp",
-  "original_filename": "tile-recognition-23.webp.asset.webp",
-  "size": 123438,
   "content_type": "image/webp",
-  "created_at": "2026-10-12T09:42:37Z"
+  "created_at": "2026-10-12T09:42:37Z",
+  "original_filename": "tile-recognition-23.webp.asset.webp",
+  "project_id": "f276b561-e247-4325-8665-12be1b8f4dfb",
+  "r2_key": "a/v1/f276b561-e247-4325-8665-12be1b8f4dfb/4c67a26b-b182-4930-8acc-7f6b072426b3/tile-recognition-23.webp.asset.webp",
+  "size": 123438,
+  "url": "/__l5e/assets-v1/4c67a26b-b182-4930-8acc-7f6b072426b3/tile-recognition-23.webp.asset.webp",
+  "version": 1
 }

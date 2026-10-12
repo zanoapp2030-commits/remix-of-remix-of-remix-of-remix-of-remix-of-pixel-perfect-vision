@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "fac1f18c-ac3f-4243-b403-dddaa2103678",
-  "project_id": "1aa895a9-a44d-41ad-b018-d2ab7beda0fc",
-  "url": "/__l5e/assets-v1/fac1f18c-ac3f-4243-b403-dddaa2103678/tile-services-23.webp.asset.webp",
-  "r2_key": "a/v1/1aa895a9-a44d-41ad-b018-d2ab7beda0fc/fac1f18c-ac3f-4243-b403-dddaa2103678/tile-services-23.webp.asset.webp",
-  "original_filename": "tile-services-23.webp.asset.webp",
-  "size": 161490,
   "content_type": "image/webp",
-  "created_at": "2026-10-12T09:43:16Z"
+  "created_at": "2026-10-12T09:43:16Z",
+  "original_filename": "tile-services-23.webp.asset.webp",
+  "project_id": "f276b561-e247-4325-8665-12be1b8f4dfb",
+  "r2_key": "a/v1/f276b561-e247-4325-8665-12be1b8f4dfb/fac1f18c-ac3f-4243-b403-dddaa2103678/tile-services-23.webp.asset.webp",
+  "size": 161490,
+  "url": "/__l5e/assets-v1/fac1f18c-ac3f-4243-b403-dddaa2103678/tile-services-23.webp.asset.webp",
+  "version": 1
 }
