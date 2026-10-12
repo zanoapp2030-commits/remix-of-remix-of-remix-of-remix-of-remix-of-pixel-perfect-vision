@@ -10,7 +10,7 @@ import bannerThree from "@/assets/refined/banner-3.jpg";
 const mediaPointers = import.meta.glob<{ default: { url: string } }>("/src/assets/restored/tile-*.asset.json", { eager: true });
 const lifeosMedia = new Map<string, string>();
 for (const [path, mod] of Object.entries(mediaPointers)) {
-  const match = path.match(/tile-([a-z]+)-(\d+)\.webp\.asset\.json$/);
+  const match = path.match(/tile-([a-z]+)-(\d+)\./);
   if (match) lifeosMedia.set(`${match[1]}/${Number(match[2])}`, mod.default.url);
 }
 function resolveMedia(html: string): string {
