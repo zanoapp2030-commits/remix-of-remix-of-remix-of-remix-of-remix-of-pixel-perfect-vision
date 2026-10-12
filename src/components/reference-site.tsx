@@ -13,6 +13,11 @@ for (const [path, mod] of Object.entries(mediaPointers)) {
   const match = path.match(/tile-([a-z]+)-(\d+)\./);
   if (match) lifeosMedia.set(`${match[1]}/${Number(match[2])}`, mod.default.url);
 }
+const hdMedia = import.meta.glob<{ default: string }>("/src/assets/hd/tile-*.jpg", { eager: true });
+for (const [path, mod] of Object.entries(hdMedia)) {
+  const match = path.match(/tile-([a-z]+)-(\d+)\./);
+  if (match) lifeosMedia.set(`${match[1]}/${Number(match[2])}`, mod.default);
+}
 function resolveMedia(html: string): string {
   return html.replace(/lifeos-media:\/\/([a-z]+)\/(\d{2})/g, (match, group, number) => lifeosMedia.get(`${group}/${Number(number)}`) ?? match);
 }
