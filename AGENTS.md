@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Preserve imported content through a shared HTML-to-React renderer and leaf TanStack routes, so the source layout and navigation remain consistent.
+- Store imported media as project-owned CDN asset pointers with a source-to-destination map, so no media depends on another project's asset serving.
+- Keep the target starter runtime and package versions when importing pages, so the app remains compatible with the managed hosting environment.
