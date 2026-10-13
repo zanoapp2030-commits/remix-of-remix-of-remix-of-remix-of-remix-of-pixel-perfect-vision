@@ -154,3 +154,15 @@
 @media (max-width: 860px) { .login-card { grid-template-columns: 1fr; } .login-side { padding: 40px 28px; } .login-main { padding: 40px 28px; } }
 
 .reference-video-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reference-collection-control{clear:both;width:100%;display:flex;justify-content:center;padding:24px 0 8px}
+.reference-site .reference-collection-control .button{min-height:44px;font-size:14px;padding:10px 24px}
+.reference-site #profile p{max-width:80ch}
+.reference-site #profile>.container>.col-lg-12>p{margin-left:auto;margin-right:auto}
+.reference-news-events .events .card{border-radius:8px;overflow:hidden;height:100%;box-shadow:none;border:1px solid var(--border)}
+.reference-news-events .events{row-gap:24px}
+.reference-news-events .events .card img{aspect-ratio:4/3;object-fit:cover}
+.reference-news-events .events .card h4{font-size:18px;line-height:1.4;padding:0 16px}
+.reference-news-events .events .card p{padding:0 16px}
+.reference-news-events .events .card>div{padding:0 16px 16px}
+.reference-awards .awards img{aspect-ratio:1;object-fit:cover;border-radius:4px}
+.reference-site .box-ordered{row-gap:24px}
