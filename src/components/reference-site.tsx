@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import parse, { domToReact, Element, type DOMNode, type HTMLReactParserOptions } from "html-react-parser";
+import parse, { attributesToProps, domToReact, Element, type DOMNode, type HTMLReactParserOptions } from "html-react-parser";
 import { Button } from "@/components/ui/button";
 import reference from "@/lib/reference-pages.json";
 import { collectionLimit, collectionGroups } from "@/lib/content-density";
@@ -35,8 +35,8 @@ function CompactCollection({ node, options, limit }: { node: Element; options: H
   const [all, setAll] = useState(false);
   const groups = collectionGroups(node);
   const Tag = node.name === "ul" ? "ul" : node.name === "ol" ? "ol" : "div";
-  const id = node.attribs.id;
-  return <><Tag id={id} className={node.attribs.class}>{domToReact((all ? groups : groups.slice(0, limit)).flat(), options)}</Tag>{groups.length > limit && <div className="reference-collection-control"><Button variant="reference" size="reference" className="button button-primary" aria-expanded={all} onClick={() => setAll(!all)}>{all ? "Show less" : `View all (${groups.length})`}</Button></div>}</>;
+  const id = node.attribs["id"];
+  return <><Tag id={id} className={node.attribs["class"]}>{domToReact((all ? groups : groups.slice(0, limit)).flat(), options)}</Tag>{groups.length > limit && <div className="reference-collection-control"><Button variant="reference" size="reference" className="button button-primary" aria-expanded={all} onClick={() => setAll(!all)}>{all ? "Show less" : `View all (${groups.length})`}</Button></div>}</>;
 }
 
 function ReferenceMarkup({ html, header = false }: { html: string; header?: boolean }) {
@@ -58,7 +58,7 @@ function ReferenceMarkup({ html, header = false }: { html: string; header?: bool
       if (node.name === "script" || node.name === "style") return <></>;
       const limit = header ? undefined : collectionLimit(node);
       if (limit && collectionGroups(node).length > limit) return <CompactCollection node={node} options={options} limit={limit} />;
-      if (node.name === "img") return <img src={attrs["src"]} alt={attrs["alt"] ?? ""} className={cls} width={attrs["width"]} height={attrs["height"]} loading="lazy" decoding="async" />;
+      if (node.name === "img") return <img {...attributesToProps(attrs)} alt={attrs["alt"] ?? ""} loading="lazy" decoding="async" />;
       if (cls === "box" && attrs["data-toggle"] === "modal") {
         const image = node.children.find(n => n instanceof Element && n.name === "img");
         return <Button variant="reference" size="reference" className={cls} aria-label={image instanceof Element ? image.attribs["alt"] : "View certificate"} onClick={() => { if (image instanceof Element) setNotice(image.attribs["src"]); }}>{children()}</Button>;
@@ -89,7 +89,7 @@ function ReferenceMarkup({ html, header = false }: { html: string; header?: bool
         if (cls.includes("cbp-singlePage")) {
           const findImage = (nodes: DOMNode[]): Element | undefined => { for (const child of nodes) { if (child instanceof Element) { if (child.name === "img") return child; const found = findImage(child.children as DOMNode[]); if (found) return found; } } return undefined; };
           const image = findImage(node.children as DOMNode[]) ?? (node.parent instanceof Element ? findImage(node.parent.children as DOMNode[]) : undefined);
-          return <a href={image?.attribs.src ?? href} className={cls} onClick={e => { if (image) { e.preventDefault(); setNotice(image.attribs.src); } }}>{children()}</a>;
+          return <a href={image?.attribs["src"] ?? href} className={cls} onClick={e => { if (image) { e.preventDefault(); setNotice(image.attribs["src"]); } }}>{children()}</a>;
         }
         if (href.startsWith("#collapse")) { const id = href.slice(1); return <a href={href} className={`${cls} ${panel === id ? "" : "collapsed"}`} aria-expanded={panel === id} onClick={e => { e.preventDefault(); setPanel(panel === id ? "" : id); }}>{children()}</a>; }
         if (href in localPages) return <Link className={cls} to={localPages[href as keyof typeof localPages]}>{children()}</Link>;
